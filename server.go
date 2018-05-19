@@ -33,7 +33,7 @@ func main() {
 func CheckError(err error) {
 	if err != nil {
 		log.Fatal(err)
-		//panic(err)
+
 	}
 }
 
@@ -59,15 +59,13 @@ func RecvMsg(conn net.Conn) string {
 	return string(buf[0:NumOfByte])
 }
 func ProcessCli(conn net.Conn) {
-	// 处理消息
+
 	for {
 		log.Println("Enter ProcessCli")
 		content := RecvMsg(conn)
 		if content == "" {
 			return
 		}
-		//分割地址与msg
-		//fmt.Println(NumOfByte)
 
 		log.Println(content)
 		strs := strings.Split(content, "#")
@@ -82,8 +80,6 @@ func ProcessCli(conn net.Conn) {
 		} else {
 			SendMsg(conn.RemoteAddr().String(), "Msg Error")
 		}
-
-		//向指定地址发功msg
 
 	}
 

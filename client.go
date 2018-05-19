@@ -45,7 +45,7 @@ func SendMsg(conn net.Conn) {
 	for {
 		var input string
 		log.Println("Before Input Msg")
-		//fmt.Scanf("%s", &input)
+
 		inputReader := bufio.NewReader(os.Stdin)
 		input, _ = inputReader.ReadString('\n')
 		fmt.Println(input)
